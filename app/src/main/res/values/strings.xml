@@ -1,0 +1,314 @@
+<resources>
+    <string name="app_name">TDLLY</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="Ad_type">Ad type</string>
+    <string name="Api_key">AIzaSyDZDfDu-npZxpvUkfx4hbPwCHC5dctS7Q0</string>
+    <string name="Login">Login</string>
+    <string name="about_app">About App</string>
+    <string name="accept_rule">Approve the terms and conditions</string>
+    <string name="ad_details">Ad details</string>
+    <string name="ad_name">Ad name</string>
+    <string name="ad_upd_succ">ad successfully updated</string>
+    <string name="add_ads">Add ads</string>
+    <string name="add_image">Add photo</string>
+    <string name="adding_ads">Adding new ad</string>
+    <string name="address">Address</string>
+    <string name="ads_added">Ad successfully added</string>
+    <string name="ads_content">Ads content</string>
+    <string name="ads_num">Ads number</string>
+    <string name="agree">agree</string>
+    <string name="all">All</string>
+    <string name="all_ads">All Ads</string>
+
+    <string name="appbar_scrolling_view_behavior">
+android.support.design.widget.AppBarLayout$ScrollingViewBehavior
+</string>
+    <string name="attach_image">Attach a copy of the money transfer</string>
+    <string name="bank">Bank</string>
+    <string name="bank_accounts">Bank Accounts</string>
+    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="branch">Branch</string>
+    <string name="cancel">Cancel</string>
+    <string name="ch_ad_imgs">Choose ad Images</string>
+    <string name="ch_ad_type">choose ad type</string>
+    <string name="ch_branch">Choose branch</string>
+    <string name="ch_date">Choose date</string>
+    <string name="ch_dept">Choose department</string>
+    <string name="ch_new_date">Choose new date</string>
+    <string name="ch_per_img">Choose your image</string>
+    <string name="change_language">Change language</string>
+    <string name="character_counter_pattern">%1$d / %2$d</string>
+    <string name="choose_6_image">Enter 6 Images</string>
+    <string name="choose_bank">Choose bank</string>
+    <string name="city">City</string>
+    <string name="city_updated">city successfully updated</string>
+    <string name="cnt_find_loc">"can't find your location"</string>
+    <string name="com_lamudi_phonefield_edittext">phone_edit_text</string>
+    <string name="com_lamudi_phonefield_flag_spinner">flag_spinner</string>
+    <string name="com_lamudi_phonefield_til_phone">til_phone</string>
+    <string name="common_google_play_services_enable_button">Enable</string>
+    <string name="common_google_play_services_enable_text">
+"%1$s won't work unless you enable Google Play services."
+</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text">
+"%1$s won't run without Google Play services, which are missing from your device."
+</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue">
+%1$s is having trouble with Google Play services. Please try again.
+</string>
+    <string name="common_google_play_services_unsupported_text">
+"%1$s won't run without Google Play services, which are not supported by your device."
+</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">
+"%1$s won't run unless you update Google Play services."
+</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">
+"%1$s won't run without Google Play services, which are currently updating."
+</string>
+    <string name="common_google_play_services_wear_update_text">
+New version of Google Play services needed. It will update itself shortly.
+</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="cong_lottery">Congratulations you were in lottery</string>
+    <string name="cong_msg">
+Congratulations, you get a 10% discount for any item in the application. Take a picture of the screen and when you buy, send the picture to the administration so that we can contact the advertiser
+</string>
+    <string name="congrat">Congratulation</string>
+    <string name="contact_us">Contact us</string>
+    <string name="create_account">Create an account</string>
+    <string name="creating_account">Creating new account...</string>
+    <string name="curr">Current</string>
+    <string name="curr_pass">Current password</string>
+    <string name="day">Day</string>
+    <string name="default_web_client_id">
+937967699473-166trlhhveot8qs7be6jc3i4cg35nhjt.apps.googleusercontent.com
+</string>
+    <string name="del_all">Delete All</string>
+    <string name="del_success">Messages successfully deleted</string>
+    <string name="del_this_msg">Delete this message ?</string>
+    <string name="delete">Delete</string>
+    <string name="delete_image">Delete image ?</string>
+    <string name="deleting">Deleting ad...</string>
+    <string name="deleting_msg">Deleting messages...</string>
+    <string name="deltng">Deleting...</string>
+    <string name="dept">Department</string>
+    <string name="dis_agree">not agree</string>
+    <string name="dsv_ex_msg_adapter_wrong_recycler">
+InfiniteScrollAdapter is supposed to work only with DiscreteScrollView
+</string>
+    <string name="dsv_ex_msg_dont_set_lm">
+"You should not set LayoutManager on DiscreteScrollView.class instance. Library uses a special one. Just don't call the method."
+</string>
+    <string name="email">E-mail</string>
+    <string name="email_upd_succ">Email successfully updated</string>
+    <string name="enter_ad_content">Enter ad content</string>
+    <string name="enter_ad_name">Enter Ad name</string>
+    <string name="enter_address">Enter address</string>
+    <string name="enter_adsnum">Enter ad number</string>
+    <string name="enter_city">Enter city</string>
+    <string name="enter_curr_pass">Enter current password</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_fn">Enter first name</string>
+    <string name="enter_ln">Enter last name</string>
+    <string name="enter_loc">Enter Location</string>
+    <string name="enter_location">Set your location</string>
+    <string name="enter_money">Enter transfer commission</string>
+    <string name="enter_msg">Enter message</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_new_pass">Enter new password</string>
+    <string name="enter_pass">Enter password</string>
+    <string name="enter_phone">Enter phone</string>
+    <string name="enter_price">Enter price</string>
+    <string name="enter_proname">Enter product name</string>
+    <string name="enter_re_pass">Re-type password</string>
+    <string name="enter_sub">Enter subject</string>
+    <string name="enter_un">Enter username</string>
+    <string name="error">Error try again later</string>
+    <string name="f_name">First name</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="firebase_database_url">https://allapps-885b5.firebaseio.com</string>
+    <string name="forget_pass">Forget password ?</string>
+    <string name="from">From :</string>
+    <string name="gcm_defaultSenderId">937967699473</string>
+    <string name="google_api_key">AIzaSyDBVlu8LhDsRWCKY4A9XMlbHDYKCzmH8nA</string>
+    <string name="google_app_id">1:937967699473:android:5a860a8db3d19a37</string>
+    <string name="google_crash_reporting_api_key">AIzaSyDBVlu8LhDsRWCKY4A9XMlbHDYKCzmH8nA</string>
+    <string name="google_storage_bucket">allapps-885b5.appspot.com</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="home">Home</string>
+    <string name="inv_email">Invalid email</string>
+    <string name="inv_old_pass">Invalid old password</string>
+    <string name="inv_phone">Invalid phone</string>
+    <string name="isSell">Sold</string>
+    <string name="item">item</string>
+    <string name="km">Km</string>
+    <string name="l_name">Last name</string>
+    <string name="loc_deter">Your location determined</string>
+    <string name="locating">Locating...</string>
+    <string name="location">Location</string>
+    <string name="lodng_bnks">Loading bank accounts...</string>
+    <string name="logging">Login...</string>
+    <string name="logging_out">Logout...</string>
+    <string name="logout">Logout</string>
+    <string name="max_img_note">Max 6 images. Scroll to add more photos.</string>
+    <string name="message">Message</string>
+    <string name="messaging">Messaging</string>
+    <string name="mobile_not">
+Connect by app only (mobile number not shown to customers)
+</string>
+    <string name="money">Amount of commission</string>
+    <string name="msg">Messages</string>
+    <string name="msg_sent">Message successfully sent</string>
+    <string name="msg_txt">Message</string>
+    <string name="my_ads">My ads</string>
+    <string name="n_account">New Account</string>
+    <string name="name">Name</string>
+    <string name="name_upd_succ">Name successfully updated</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="nearby">Nearby</string>
+    <string name="new_account">Create new account</string>
+    <string name="new_ads">New</string>
+    <string name="new_pass">New password</string>
+    <string name="next">Next</string>
+    <string name="no_ads">There are no ads to display</string>
+    <string name="no_branch">There is no branch</string>
+    <string name="no_chat">There are no conversations to display</string>
+    <string name="no_dept">There are no department to display</string>
+    <string name="no_img">There are no images to display</string>
+    <string name="no_r">No Results</string>
+    <string name="nobranch_to_dept">There is no branch for this department</string>
+    <string name="noreg_without_rules">
+You can not log in without agreeing to the terms and conditions
+</string>
+    <string name="numitem_delete">The number of items to be deleted</string>
+    <string name="ok">Ok</string>
+    <string name="pass_notmath">password not match</string>
+    <string name="pass_upd_success">Password successfully updated</string>
+    <string name="password">Password</string>
+    <string name="password_toggle_content_description">Toggle password visibility</string>
+    <string name="path_password_eye">
+M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z
+</string>
+    <string name="path_password_eye_mask_strike_through">
+M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z
+</string>
+    <string name="path_password_eye_mask_visible">
+M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z
+</string>
+    <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="perm_read_denied">Read image permission denied</string>
+    <string name="phone">(+country key)Phone</string>
+    <string name="phone_succ_update">Phone successfully updated</string>
+    <string name="place_autocomplete_clear_button">Clear search</string>
+    <string name="place_autocomplete_search_hint">Search</string>
+    <string name="pr_req">Price is required</string>
+    <string name="press_long">Press and hold to take a picture</string>
+    <string name="prev">Previous</string>
+    <string name="price">Price</string>
+    <string name="profile">Profile</string>
+    <string name="project_id">allapps-885b5</string>
+    <string name="re_new_pass">Re-type new password</string>
+    <string name="re_pass">Re-type new password</string>
+    <string name="re_password">Re-type password</string>
+    <string name="recent">Recent</string>
+    <string name="recover_pass">
+Recover your account.We will send you a link to change your password
+</string>
+    <string name="reg_error">Error while registering</string>
+    <string name="reset_password">Reset password</string>
+    <string name="resetmsg_success">
+Done. A message will be sent by email. Please check your email to add the new password
+</string>
+    <string name="result">Search Results</string>
+    <string name="rules">Rules</string>
+    <string name="sar">SAR</string>
+    <string name="search">search</string>
+    <string name="search_hint">Search</string>
+    <string name="search_menu_title">Search</string>
+    <string name="sel_image">select images</string>
+    <string name="sel_reason">Select reason</string>
+    <string name="select_language">Select Language</string>
+    <string name="send">Send</string>
+    <string name="sending_msg">Sending message...</string>
+    <string name="ser_not_ava">
+This service is not available to visitors plz create an account
+</string>
+    <string name="share">Share</string>
+    <string name="sign_in_or_create_a_new_account_so_you_can_send_a_message_to_the_owner_of_the_ad">
+Sign in or create a new account so you can send a message to the owner of the ad
+</string>
+    <string name="skip">Skip</string>
+    <string name="sold">Item was sold</string>
+    <string name="something">Something went haywire</string>
+    <string name="sorry">Sorry</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="subject">Subject</string>
+    <string name="succ_reg">Successfully registered</string>
+    <string name="sugg">Suggested us</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="there_are_no_messages_to_display">There are no messages to display</string>
+    <string name="tm">Type a message...</string>
+    <string name="to">To :</string>
+    <string name="trans_bank">The bank that has been transferred</string>
+    <string name="trans_date">Transfer date</string>
+    <string name="trans_money">Transfer commission</string>
+    <string name="trans_success">Transfer successfully</string>
+    <string name="transfering_comm">Transfer commission...</string>
+    <string name="u_e_incorrect">username or email incorrect</string>
+    <string name="un_updated">Username updated successfully</string>
+    <string name="undefined">undefined</string>
+    <string name="undo_ads">Undo the ad</string>
+    <string name="upd_ad">Update ad</string>
+    <string name="upd_city">Update city</string>
+    <string name="upd_email">Update email</string>
+    <string name="upd_name">Update name</string>
+    <string name="upd_phone">Update phone</string>
+    <string name="upd_username">Update Username</string>
+    <string name="update">Update</string>
+    <string name="update_or_delete">update or delete</string>
+    <string name="update_pass">Update password</string>
+    <string name="updating_ad">Updating ad...</string>
+    <string name="updating_pass">Updating password...</string>
+    <string name="updating_prof">Updating profile...</string>
+    <string name="used">Used</string>
+    <string name="user_pass_error">username or password incorrect</string>
+    <string name="userexist">Username already exist</string>
+    <string name="username">Username</string>
+    <string name="visitor">Visitor</string>
+    <string name="wait">Wait...</string>
+    <string name="wdel">will be deleted</string>
+    <string name="wtsnotins">WhatsApp not install</string>
+    <string name="yes">yes</string>
+    <string name="action_settings">Settings</string>
+    <string name="bags">Bags</string>
+    <string name="modern_brand">Modern brand</string>
+    <string name="rolex">Rolex</string>
+    <string name="adidas">Adidas</string>
+    <string name="original_brands">Original brands</string>
+    <string name="captive_producer">Captive Producer</string>
+    <string name="sweet_savory">Sweet and savory</string>
+    <string name="technology">Technology</string>
+    <string name="families_work">Families work</string>
+    <string name="popular_food">Popular food</string>
+    <string name="fast_food">Fast food</string>
+    <string name="sweet">Sweet</string>
+    <string name="savory">Savory</string>
+    <string name="smart_phones">Smart phones</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="banks_accounts">Banks accounts</string>
+    <string name="current">Current</string>
+</resources>

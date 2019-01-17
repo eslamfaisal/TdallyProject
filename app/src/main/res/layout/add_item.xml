@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8.0dip"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3.0">
+
+            <FrameLayout
+                android:layout_width="0.0dip"
+                android:layout_height="150.0dip"
+                android:layout_weight="1.1">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                    fresco:backgroundImage="@color/gray"
+                    fresco:placeholderImage="@drawable/ic_dummy_user"
+                    fresco:progressBarAutoRotateInterval="1000"
+                    fresco:progressBarImage="@drawable/ic_refresh_black_24dp"
+                    fresco:roundingBorderColor="@android:color/white"
+                    fresco:roundingBorderWidth="4dp"
+                    android:id="@+id/ad_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9"
+                android:orientation="vertical"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="0.0dip"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.35"
+                        android:gravity="center|right"
+                        android:paddingRight="5.0dip"
+                        android:singleLine="true"
+                        android:textColor="@color/gray0"
+                        android:textSize="14.0sp" />
+
+                    <FrameLayout
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.65">
+
+                        <TextView
+                            android:id="@+id/add_status"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ads_item_etbg"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@string/new_ads"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/state_used"
+                            android:layout_width="fill_parent"
+                            android:layout_height="25.0dip"
+                            android:background="@drawable/ads_mosta3mal_bg"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@string/used"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7.0dip">
+
+                    <TextView
+                        android:id="@+id/add_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center|right"
+                        android:paddingLeft="10.0dip"
+                        android:paddingRight="10.0dip"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="horizontal"
+                    android:weightSum="2.0">
+
+                    <ImageView
+                        android:layout_width="35.0dip"
+                        android:layout_height="35.0dip"
+                        android:padding="5.0dip"
+                        android:src="@drawable/view_icon" />
+
+                    <TextView
+                        android:id="@+id/viewers"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.5"
+                        android:singleLine="true"
+                        android:text="55"
+                        android:textColor="@color/gray0"
+                        android:textSize="16.0sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="16.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/distContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginBottom="5.0dip"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25.0dip"
+                        android:layout_height="25.0dip"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/map" />
+
+                    <TextView
+                        android:id="@+id/distance"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10.0dip"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="11.0sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_upd_del"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:padding="5.0dip"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/updateAd"
+        android:layout_width="fill_parent"
+        android:layout_height="30.0dip"
+        android:layout_marginLeft="30.0dip"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginRight="30.0dip"
+        android:background="@drawable/item_delete_bg"
+        android:orientation="horizontal"
+        android:weightSum="2.0">
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5.0dip"
+            android:layout_weight="0.995"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/update"
+            android:textColor="@color/white"
+            android:textSize="15.0sp" />
+
+        <View
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="5.0dip"
+            android:layout_marginBottom="5.0dip"
+            android:layout_weight="0.01"
+            android:background="@color/white" />
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5.0dip"
+            android:layout_weight="0.995"
+            android:padding="3.0dip"
+            android:src="@drawable/delete_icon" />
+    </LinearLayout>
+</LinearLayout>

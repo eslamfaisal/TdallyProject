@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="fill_parent"
+            android:layout_height="?actionBarSize"
+            app:contentInsetEnd="0.0dip"
+            app:contentInsetLeft="0.0dip"
+            app:contentInsetRight="0.0dip"
+            app:contentInsetStart="0.0dip">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <ImageView
+                    android:onClick="goMain"
+                    android:id="@id/back"
+                    android:layout_width="56.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentLeft="true"
+                    android:padding="20.0dip"
+                    android:src="@drawable/white_back_arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/add_ads"
+                    android:textColor="@color/white"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15.0dip"
+            android:paddingTop="10.0dip"
+            android:paddingRight="15.0dip"
+            android:paddingBottom="20.0dip">
+
+            <EditText
+                android:id="@+id/ad_title"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:background="@drawable/et_bg_trans"
+                android:drawablePadding="5.0dip"
+                android:hint="@string/ad_name"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15.0sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:background="@drawable/et_bg_trans"
+                android:drawablePadding="5.0dip"
+                android:hint="@string/address"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15.0sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@id/location"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:background="@drawable/et_bg_trans"
+                android:drawablePadding="5.0dip"
+                android:gravity="center_vertical"
+                android:hint="@string/location"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15.0sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:orientation="horizontal"
+                android:weightSum="2.0">
+
+                <Spinner
+                    android:id="@+id/depart_spinner"
+                    android:layout_width="0.0dip"
+                    android:layout_height="45.0dip"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_weight="1.0"
+                    app:backgroundTint="@color/black" />
+
+                <Spinner
+                    android:id="@+id/branche_spinner"
+                    android:layout_width="0.0dip"
+                    android:layout_height="45.0dip"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_weight="1.0"
+                    app:backgroundTint="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/cost"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45.0dip"
+                    android:layout_marginBottom="10.0dip"
+                    android:background="@drawable/et_bg_trans"
+                    android:drawablePadding="5.0dip"
+                    android:hint="@string/price"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/ad_type"
+                android:layout_width="160.0dip"
+                android:layout_height="45.0dip"
+                android:layout_marginRight="5.0dip"
+                android:layout_marginBottom="5.0dip"
+                app:backgroundTint="@color/black" />
+
+            <TextView
+                android:id="@id/phone"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:background="@drawable/et_bg_trans"
+                android:drawablePadding="5.0dip"
+                android:gravity="center_vertical"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15.0sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkbox_phone_state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:paddingRight="5.0dip"
+                android:text="@string/mobile_not"
+                android:textSize="12.0sp"
+                app:buttonTint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/ads_content"
+                android:layout_width="fill_parent"
+                android:layout_height="150.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:background="@drawable/et_bg_trans"
+                android:drawablePadding="5.0dip"
+                android:gravity="start"
+                android:hint="@string/ads_content"
+                android:inputType="textMultiLine"
+                android:padding="8.0dip"
+                android:paddingLeft="5.0dip"
+                android:paddingRight="5.0dip"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray2"
+                android:textSize="17.0sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/uploadImages"
+                    android:layout_width="56.0dip"
+                    android:layout_height="56.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:padding="5.0dip"
+                    android:src="@drawable/upload_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5.0dip"
+                    android:text="@string/add_image"
+                    android:textColor="@color/black"
+                    android:textSize="13.0sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginBottom="10.0dip"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:fitsSystemWindows="true"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img1"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img1"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img2"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img2"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img3"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img3"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img4"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img4"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img5"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img5"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.github.siyamed.shapeimageview.RoundedImageView
+                                android:id="@+id/img6"
+                                android:layout_width="105.0dip"
+                                android:layout_height="100.0dip"
+                                android:layout_marginRight="5.0dip"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imgs_bg"
+                                app:siBorderColor="@color/gray2"
+                                app:siBorderWidth="1.0dip"
+                                app:siRadius="10.0dip" />
+
+                            <ImageView
+                                android:id="@+id/delete_img6"
+                                android:layout_width="25.0dip"
+                                android:layout_height="25.0dip"
+                                android:background="@drawable/del_bg"
+                                android:padding="7.0dip"
+                                android:src="@drawable/del"
+                                android:visibility="gone" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_marginBottom="5.0dip"
+                    android:text="@string/max_img_note"
+                    android:textColor="@color/gray0"
+                    android:textSize="13.0sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/send_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_marginBottom="20.0dip"
+                android:background="@drawable/dark_btn_bg"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

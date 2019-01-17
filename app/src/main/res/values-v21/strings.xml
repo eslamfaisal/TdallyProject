@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bags">Bags</string>
+    <string name="modern_brand">Modern brand</string>
+    <string name="rolex">Rolex</string>
+    <string name="adidas">Adidas</string>
+    <string name="original_brands">Original brands</string>
+    <string name="captive_producer">Captive Producer</string>
+    <string name="sweet_savory">Sweet and savory</string>
+    <string name="technology">Technology</string>
+    <string name="families_work">Families work</string>
+    <string name="popular_food">Popular food</string>
+    <string name="fast_food">Fast food</string>
+    <string name="sweet">Sweet</string>
+    <string name="savory">Savory</string>
+    <string name="smart_phones">Smart phones</string>
+</resources>

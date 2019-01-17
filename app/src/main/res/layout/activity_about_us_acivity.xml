@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.AboutUsActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:visibility="visible"
+        fresco:backgroundImage="@color/gray"
+        fresco:placeholderImage="@drawable/logo_2"
+        fresco:progressBarAutoRotateInterval="1000"
+        fresco:progressBarImage="@drawable/ic_refresh_black_24dp"
+        fresco:roundedCornerRadius="8dp"
+        fresco:roundingBorderColor="@color/colorPrimary"
+        fresco:roundingBorderWidth="2dp" />
+
+    <TextView
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:layout_margin="8dp"
+        android:text="كل المعلومات المتعلقة بتطبيق تدللى"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
