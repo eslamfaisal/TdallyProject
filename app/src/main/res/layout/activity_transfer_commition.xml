@@ -26,7 +26,7 @@
 
                 <ImageView
                     android:onClick="back"
-                    android:id="@id/back"
+                    android:id="@+id/back"
                     android:layout_width="56.0dip"
                     android:layout_height="fill_parent"
                     android:layout_alignParentLeft="true"
@@ -71,7 +71,7 @@
                 android:paddingBottom="5.0dip">
 
                 <TextView
-                    android:id="@id/user_name"
+                    android:id="@+id/user_name"
                     android:layout_width="fill_parent"
                     android:layout_height="38.0dip"
                     android:layout_marginBottom="10.0dip"
@@ -111,10 +111,11 @@
                     android:textSize="13.0sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tv_bank"
+                <Spinner
+                    android:padding="8dp"
+                    android:id="@+id/banks_spinner"
                     android:layout_width="fill_parent"
-                    android:layout_height="38.0dip"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dip"
                     android:layout_marginBottom="10.0dip"
                     android:background="@drawable/et_bg_trans"
@@ -229,7 +230,7 @@
                     app:siRadius="10.0dip" />
 
                 <Button
-                    android:id="@id/send_btn"
+                    android:id="@+id/send_btn"
                     android:layout_width="fill_parent"
                     android:layout_height="50.0dip"
                     android:layout_alignParentBottom="true"

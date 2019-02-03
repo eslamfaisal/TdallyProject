@@ -15,12 +15,18 @@ import android.view.ViewGroup;
 import com.fekrah.tdally.R;
 import com.fekrah.tdally.adapters.AdsAdapter;
 import com.fekrah.tdally.models.Ad;
+import com.fekrah.tdally.models.AllAdsResponse;
+import com.fekrah.tdally.server.Apis;
+import com.fekrah.tdally.server.BaseClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AllAdsFragment extends Fragment {
 
@@ -47,13 +53,26 @@ public class AllAdsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
-        ads = new ArrayList<>();
-        addAds();
-        addAds();addAds();addAds();
-        linearLayoutManager = new LinearLayoutManager(getActivity());
-        adsAdapter = new AdsAdapter(getActivity(),ads);
-        allAdsRecyclerView.setLayoutManager(linearLayoutManager);
-        allAdsRecyclerView.setAdapter(adsAdapter);
+
+        Apis apis = BaseClient.getBaseClient().create(Apis.class);
+        apis.getAllAds("5","all").enqueue(new Callback<AllAdsResponse>() {
+            @Override
+            public void onResponse(Call<AllAdsResponse> call, Response<AllAdsResponse> response) {
+                if (response.body()!=null){
+                    linearLayoutManager = new LinearLayoutManager(getActivity());
+                    adsAdapter = new AdsAdapter(getActivity(),response.body().getData());
+                    allAdsRecyclerView.setLayoutManager(linearLayoutManager);
+                    allAdsRecyclerView.setAdapter(adsAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllAdsResponse> call, Throwable t) {
+
+            }
+        });
+
+
     }
 
     private void addAds() {

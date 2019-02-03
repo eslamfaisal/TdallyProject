@@ -21,7 +21,8 @@
     <string name="agree">موافق</string>
     <string name="all">الكل</string>
     <string name="all_ads">كل الاعلانات</string>
-
+    <string name="get_location_permistion">يجب اعطاء التطبيق تصريح الدخول للموقع!</string>
+    <string name="gps_message">هل تمانع فى تشغيل ال GPS فى وضح الدقة العاليه؟</string>
     <string name="appbar_scrolling_view_behavior">
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior
 </string>
@@ -129,7 +130,7 @@ android.support.design.widget.AppBarLayout$ScrollingViewBehavior
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="nearby">Nearby</string>
-    <string name="new_account">انسائ حساب جديد</string>
+    <string name="new_account">انشاء حساب جديد</string>
     <string name="new_ads">جديد</string>
     <string name="new_pass">New password</string>
     <string name="next">التالى</string>
@@ -235,7 +236,7 @@ Sign in or create a new account so you can send a message to the owner of the ad
     <string name="used">مستخدم</string>
     <string name="user_pass_error">خطأ فى كلمة المرور او البريد</string>
     <string name="userexist">اسم المستخدم موجود بالفعل</string>
-    <string name="username">اسمالمستخدم</string>
+    <string name="username">اسم المستخدم</string>
     <string name="visitor">زائر</string>
     <string name="wait">انتظر.</string>
     <string name="wdel">سوف يتم المسح</string>
@@ -261,4 +262,12 @@ Sign in or create a new account so you can send a message to the owner of the ad
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="banks_accounts">Banks accounts</string>
     <string name="current">الحالى</string>
+    <string name="getting_locations">Getting Location...</string>
+    <string name="no_internet">No internet</string>
+    <string name="invalid_lat_long_used">Invaled lat long ysed</string>
+    <string name="no_address_found">No address</string>
+    <string name="address_found">Address found</string>
+    <string name="fill_all">Pleas fill all fields</string>
+    <string name="pass_not_match">Password not match</string>
+    <string name="sending_ad">Sending the ad</string>
 </resources>

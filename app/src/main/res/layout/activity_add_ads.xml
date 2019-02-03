@@ -59,7 +59,7 @@
             android:paddingBottom="20.0dip">
 
             <EditText
-                android:id="@+id/ad_title"
+                android:id="@+id/ad_name"
                 android:layout_width="fill_parent"
                 android:layout_height="45.0dip"
                 android:layout_marginBottom="10.0dip"
@@ -93,7 +93,8 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@id/location"
+                android:visibility="gone"
+                android:id="@+id/location"
                 android:layout_width="fill_parent"
                 android:layout_height="45.0dip"
                 android:layout_marginBottom="10.0dip"
@@ -118,20 +119,21 @@
                 android:weightSum="2.0">
 
                 <Spinner
-                    android:id="@+id/depart_spinner"
+                    android:background="@drawable/et_bg_trans"
+                    android:id="@+id/category"
                     android:layout_width="0.0dip"
                     android:layout_height="45.0dip"
                     android:layout_marginLeft="5.0dip"
-                    android:layout_weight="1.0"
-                    app:backgroundTint="@color/black" />
+                    android:layout_weight="1.0" />
 
                 <Spinner
-                    android:id="@+id/branche_spinner"
+                    android:background="@drawable/et_bg_trans"
+                    android:id="@+id/sub_category"
                     android:layout_width="0.0dip"
                     android:layout_height="45.0dip"
                     android:layout_marginRight="5.0dip"
                     android:layout_weight="1.0"
-                    app:backgroundTint="@color/black" />
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -140,7 +142,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/cost"
+                    android:id="@+id/price"
                     android:layout_width="fill_parent"
                     android:layout_height="45.0dip"
                     android:layout_marginBottom="10.0dip"
@@ -164,10 +166,10 @@
                 android:layout_height="45.0dip"
                 android:layout_marginRight="5.0dip"
                 android:layout_marginBottom="5.0dip"
-                app:backgroundTint="@color/black" />
+                android:background="@drawable/et_bg_trans" />
 
-            <TextView
-                android:id="@id/phone"
+            <EditText
+                android:id="@+id/phone"
                 android:layout_width="fill_parent"
                 android:layout_height="45.0dip"
                 android:layout_marginBottom="10.0dip"
@@ -186,6 +188,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
+                android:visibility="gone"
                 android:id="@+id/checkbox_phone_state"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +199,7 @@
                 app:buttonTint="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/ads_content"
+                android:id="@+id/description"
                 android:layout_width="fill_parent"
                 android:layout_height="150.0dip"
                 android:layout_marginBottom="10.0dip"
@@ -214,6 +217,7 @@
                 android:textStyle="bold" />
 
             <RelativeLayout
+                android:id="@+id/choose_image"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
@@ -260,8 +264,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <com.github.siyamed.shapeimageview.RoundedImageView
-                                android:id="@+id/img1"
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:id="@+id/ad_image"
                                 android:layout_width="105.0dip"
                                 android:layout_height="100.0dip"
                                 android:layout_marginRight="5.0dip"

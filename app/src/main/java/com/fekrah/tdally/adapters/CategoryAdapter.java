@@ -11,17 +11,19 @@ import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.fekrah.tdally.R;
-import com.fekrah.tdally.models.UnitAd;
+import com.fekrah.tdally.helper.Constants;
+import com.fekrah.tdally.models.CategoriesResponse;
+import com.fekrah.tdally.models.Category;
 
 import java.util.List;
 
-public class HorisontalScrollAdapter extends RecyclerView.Adapter <HorisontalScrollAdapter.ViewHolder>{
+public class CategoryAdapter extends RecyclerView.Adapter <CategoryAdapter.ViewHolder>{
 
     private RecyclerView unitAdsRecyclerView;
-    private List<UnitAd> data;
+    private List<CategoriesResponse.Data> data;
     Activity context;
 
-    public HorisontalScrollAdapter(List<UnitAd> data, Activity context) {
+    public CategoryAdapter(List<CategoriesResponse.Data> data, Activity context) {
         this.data = data;
         this.context = context;
     }
@@ -43,16 +45,16 @@ public class HorisontalScrollAdapter extends RecyclerView.Adapter <HorisontalScr
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int i) {
 
-        final UnitAd unitAd = data.get(i);
+        final CategoriesResponse.Data category = data.get(i);
         holder.mainView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 unitAdsRecyclerView.smoothScrollToPosition(i);
-                Toast.makeText(context, unitAd.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, category.getName(), Toast.LENGTH_SHORT).show();
             }
         });
-        holder.name.setText(unitAd.getName());
-        holder.image.setImageURI(unitAd.getImage());
+        holder.name.setText(category.getName());
+        holder.image.setImageURI(Constants.IMAGES_BASE_URL +category.getImage());
     }
 
     @Override

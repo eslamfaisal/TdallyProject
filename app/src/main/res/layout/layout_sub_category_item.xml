@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.rafakob.drawme.DrawMeButton
+        xmlns:drawme="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sub_cat_item_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:textColor="@color/white"
+        drawme:dm_backColor="@color/colorPrimary"
+        drawme:dm_backColorDisabled="@color/colorPrimary"
+        drawme:dm_backColorPressed="@color/green"
+        drawme:dm_radius="4dp" />
+</RelativeLayout>

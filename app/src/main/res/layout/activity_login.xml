@@ -47,12 +47,13 @@
             android:padding="20.0dip">
 
             <EditText
-                android:id="@+id/user_name"
+                android:id="@+id/username"
                 android:layout_width="fill_parent"
                 android:layout_height="45.0dip"
                 android:background="@drawable/ed_login"
                 android:drawableRight="@drawable/user_icon"
                 android:drawablePadding="5.0dip"
+                android:text="wzz"
                 android:hint="@string/username"
                 android:paddingLeft="5.0dip"
                 android:paddingRight="5.0dip"
@@ -62,7 +63,7 @@
                 android:textSize="14.0sp" />
 
             <EditText
-                android:id="@+id/user_password"
+                android:id="@+id/password"
                 android:layout_width="fill_parent"
                 android:layout_height="45.0dip"
                 android:layout_marginTop="10.0dip"
@@ -70,6 +71,7 @@
                 android:drawableRight="@drawable/pass_icon"
                 android:drawablePadding="5.0dip"
                 android:hint="@string/password"
+                android:text="123456"
                 android:inputType="textPassword"
                 android:paddingLeft="5.0dip"
                 android:paddingRight="5.0dip"

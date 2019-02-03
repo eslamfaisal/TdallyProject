@@ -4,6 +4,17 @@
     package="com.fekrah.tdally">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- Required to check whether user has network connection or not -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Dangerous Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".App"
@@ -17,12 +28,20 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UCrop" />
         <activity
             android:name=".activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -35,17 +54,12 @@
         <activity
             android:name=".activities.AddAdsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.MyAdsActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".activities.MyAdsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activities.SplashScreen"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.TransferCommitionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -59,8 +73,10 @@
             android:name=".activities.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.AboutUsActivity" />
-        <activity android:name=".activities.AdDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.AdDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.AdsBySubCategoryActivity"></activity>
     </application>
 
 </manifest>

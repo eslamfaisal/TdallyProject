@@ -45,7 +45,7 @@
                 android:layout_marginLeft="10.0dip"
                 android:background="@drawable/arrow_bg"
                 android:padding="2.0dip"
-                android:src="@drawable/previcon"
+                app:srcCompat="@drawable/previcon"
                 android:visibility="visible" />
 
             <ImageView
@@ -56,17 +56,26 @@
                 android:layout_marginRight="10.0dip"
                 android:background="@drawable/arrow_bg"
                 android:padding="2.0dip"
-                android:src="@drawable/nexticon"
+                app:srcCompat="@drawable/nexticon"
                 android:visibility="visible" />
         </RelativeLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sub_recycler_view"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <HorizontalScrollView
+            android:visibility="gone"
             android:id="@+id/scroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="6dp">
+            android:layout_marginBottom="2dp">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -84,49 +93,48 @@
                         android:id="@+id/bags"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/bags"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
-
+                        drawme:dm_radius="4dp" />
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/modern_brand"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/modern_brand"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/rolex"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/rolex"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/adidas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/adidas"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -140,37 +148,37 @@
                         android:id="@+id/families_work"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/families_work"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/fast_food"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/fast_food"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/popular_food"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/popular_food"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -184,25 +192,25 @@
                         android:id="@+id/sweet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/sweet"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                     <com.rafakob.drawme.DrawMeButton
                         android:id="@+id/savory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/savory"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                 </LinearLayout>
 
@@ -217,13 +225,13 @@
                         android:id="@+id/smart_phones"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="2dp"
                         android:text="@string/smart_phones"
                         android:textColor="@color/white"
                         drawme:dm_backColor="@color/colorPrimary"
                         drawme:dm_backColorDisabled="@color/colorPrimary"
                         drawme:dm_backColorPressed="@color/green"
-                        drawme:dm_radius="16dp" />
+                        drawme:dm_radius="4dp" />
 
                 </LinearLayout>
 

@@ -56,7 +56,7 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/fl_add_image"
+                android:id="@+id/choose_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -84,7 +84,7 @@
             </FrameLayout>
 
             <EditText
-                android:id="@+id/tv_name"
+                android:id="@+id/name"
                 android:layout_width="fill_parent"
                 android:layout_height="50.0dip"
                 android:layout_marginLeft="10.0dip"
@@ -134,7 +134,7 @@
             <EditText
                 android:id="@+id/city"
                 android:layout_width="fill_parent"
-                android:layout_height="50.0dip"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
@@ -144,7 +144,6 @@
                 android:drawablePadding="5.0dip"
                 android:gravity="center_vertical"
                 android:hint="@string/city"
-                android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="14.0sp" />
@@ -220,6 +219,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/location"
                 android:layout_width="fill_parent"
                 android:layout_height="50.0dip"

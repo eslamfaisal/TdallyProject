@@ -15,16 +15,18 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.fekrah.tdally.MainActivity;
 import com.fekrah.tdally.R;
 import com.fekrah.tdally.activities.AdDetailsActivity;
+import com.fekrah.tdally.helper.Constants;
 import com.fekrah.tdally.models.Ad;
+import com.fekrah.tdally.models.AllAdsResponse;
 
 import java.util.List;
 
 public class AdsAdapter extends RecyclerView.Adapter <AdsAdapter.ViewHoldr>{
 
     Activity context;
-    List<Ad> ads;
+    List<AllAdsResponse.Data> ads;
 
-    public AdsAdapter(Activity context, List<Ad> ads) {
+    public AdsAdapter(Activity context, List<AllAdsResponse.Data> ads) {
         this.context = context;
         this.ads = ads;
     }
@@ -38,7 +40,8 @@ public class AdsAdapter extends RecyclerView.Adapter <AdsAdapter.ViewHoldr>{
     @Override
     public void onBindViewHolder(@NonNull ViewHoldr holder, int position) {
 
-        Ad ad = ads.get(position);
+        AllAdsResponse.Data ad = ads.get(position);
+
         if (MainActivity.allAds){
             holder.updateAd.setVisibility(View.GONE);
         }else {
@@ -50,12 +53,20 @@ public class AdsAdapter extends RecyclerView.Adapter <AdsAdapter.ViewHoldr>{
                 context.startActivity(new Intent(context,AdDetailsActivity.class));
             }
         });
+        holder.name.setText(ad.getName());
         holder.date.setText(ad.getDate());
         holder.price.setText(ad.getPrice());
-        holder.distance.setText(ad.getDistanse());
-        holder.views.setText(ad.getViews());
-        holder.image.setImageURI(ad.getAddImage());
+        holder.distance.setText(ad.getLocation());
 
+        holder.image.setImageURI(Constants.IMAGES_BASE_URL+ad.getImage());
+
+        if (ad.getType_ad().equals("جديد")){
+            holder.statusNew.setVisibility(View.VISIBLE);
+            holder.statusUsed.setVisibility(View.GONE);
+        }else {
+            holder.statusNew.setVisibility(View.GONE);
+            holder.statusUsed.setVisibility(View.VISIBLE);
+        }
         Animation animation = AnimationUtils.loadAnimation(context,
                 (position > lastPosition) ? R.anim.up_from_bottom
                         : R.anim.down_from_top);

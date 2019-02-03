@@ -150,7 +150,7 @@
                 android:textSize="12.0sp" />
 
             <Button
-                android:id="@id/send_btn"
+                android:id="@+id/send_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="50.0dip"
                 android:layout_marginTop="20.0dip"

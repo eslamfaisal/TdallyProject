@@ -14,6 +14,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -25,8 +27,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.fekrah.tdally.activities.AboutUsActivity;
 import com.fekrah.tdally.activities.AddAdsActivity;
 import com.fekrah.tdally.activities.ContactUsActivity;
@@ -35,10 +39,19 @@ import com.fekrah.tdally.activities.MyAdsActivity;
 import com.fekrah.tdally.activities.RegisterActivity;
 import com.fekrah.tdally.activities.SearchActivity;
 import com.fekrah.tdally.activities.SplashActivity;
+import com.fekrah.tdally.activities.TermsAndConditions;
 import com.fekrah.tdally.activities.TransferCommitionActivity;
-import com.fekrah.tdally.adapters.HorisontalScrollAdapter;
+import com.fekrah.tdally.adapters.CategoryAdapter;
+import com.fekrah.tdally.adapters.SubCategoryAdapter;
 import com.fekrah.tdally.fragments.AllAdsFragment;
-import com.fekrah.tdally.models.UnitAd;
+import com.fekrah.tdally.helper.Constants;
+import com.fekrah.tdally.helper.SharedHelper;
+import com.fekrah.tdally.models.BunnersResponse;
+import com.fekrah.tdally.models.CategoriesResponse;
+import com.fekrah.tdally.models.Category;
+import com.fekrah.tdally.server.Apis;
+import com.fekrah.tdally.server.BaseClient;
+import com.google.android.gms.common.api.Api;
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
@@ -51,11 +64,14 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        DiscreteScrollView.ScrollStateChangeListener<HorisontalScrollAdapter.ViewHolder>,
-        DiscreteScrollView.OnItemChangedListener<HorisontalScrollAdapter.ViewHolder>,
+        DiscreteScrollView.ScrollStateChangeListener<CategoryAdapter.ViewHolder>,
+        DiscreteScrollView.OnItemChangedListener<CategoryAdapter.ViewHolder>,
         View.OnClickListener,AllAdsFragment.ShowAllAdsListeneer {
 
     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -65,7 +81,7 @@ public class MainActivity extends AppCompatActivity
     private int imagesNum = 3;
     List<String> imagesList;
 
-    private List<UnitAd> adList;
+    private List<Category> adList;
 
     @BindView(R.id.unit_ad_picker)
     DiscreteScrollView unitAdPicker;
@@ -74,6 +90,12 @@ public class MainActivity extends AppCompatActivity
     ImageView next;
     @BindView(R.id.imgPrev)
     ImageView previus;
+
+    @BindView(R.id.sub_recycler_view)
+    RecyclerView subCategoryRecyclerView;
+
+    LinearLayoutManager subCategoryLayoutManager;
+    SubCategoryAdapter subCategoryAdapter;
 
     boolean mainViewShowed = true;
 
@@ -101,15 +123,34 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View nav = navigationView.getHeaderView(0);
+        SimpleDraweeView profileImage  = nav.findViewById(R.id.profile_image);
+        TextView profileName= nav.findViewById(R.id.user_name);
+        profileImage.setImageURI(SharedHelper.getKey(this,Constants.IMAGES_BASE_URL+LoginActivity.USER_IMAGE));
+        profileName.setText(SharedHelper.getKey(this,LoginActivity.USER_NAME));
         sliderLayout = findViewById(R.id.imageSlider);
-        sliderLayout.setIndicatorAnimation(SliderLayout.Animations.WORM); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderLayout.setIndicatorAnimation(SliderLayout.Animations.DROP); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setScrollTimeInSec(2); //set scroll delay in seconds :
-        imagesList = new ArrayList<>();
-        imagesList.add("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        imagesList.add("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        imagesList.add("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-        setSliderViews();
-        setHorizontalView();
+
+        Apis apis = BaseClient.getBaseClient().create(Apis.class);
+        apis.getBunners().enqueue(new Callback<BunnersResponse>() {
+            @Override
+            public void onResponse(Call<BunnersResponse> call, Response<BunnersResponse> response) {
+                if (response.body().getStatus()){
+                    imagesList = new ArrayList<>();
+                    for (BunnersResponse.Data dat :response.body().getData()){
+                        imagesList.add(Constants.IMAGES_BASE_URL+dat.getMessage());
+                    }
+                    setSliderViews();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BunnersResponse> call, Throwable t) {
+
+            }
+        });
+        categoryView();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -166,27 +207,44 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         });
+
+        subCategoryLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        subCategoryRecyclerView.setLayoutManager(subCategoryLayoutManager);
+
     }
 
-    void setHorizontalView() {
-        adList = new ArrayList<>();
-        adList.add(new UnitAd("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", getString(R.string.original_brands)));
-        adList.add(new UnitAd("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", getString(R.string.families_work)));
-        adList.add(new UnitAd("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", getString(R.string.sweet_savory)));
-        adList.add(new UnitAd("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", getString(R.string.technology)));
+   List< CategoriesResponse.Data> categories;
 
-        unitAdPicker.setSlideOnFling(true);
-        unitAdPicker.setAdapter(new HorisontalScrollAdapter(adList, this));
+    void categoryView() {
         unitAdPicker.addOnItemChangedListener(this);
         unitAdPicker.addScrollStateChangeListener(this);
-        unitAdPicker.scrollToPosition(0);
-        unitAdPicker.setItemTransitionTimeMillis(150);
-        unitAdPicker.setItemTransformer(new ScaleTransformer.Builder()
-                .setMinScale(0.8f)
-                .build());
+        Apis apis = BaseClient.getBaseClient().create(Apis.class);
+        apis.getCategory("123456","ar").enqueue(new Callback<CategoriesResponse>() {
+            @Override
+            public void onResponse(Call<CategoriesResponse> call, Response<CategoriesResponse> response) {
+                if (response.body()!=null){
+                    unitAdPicker.setSlideOnFling(true);
+                    categories = response.body().getData();
+                    unitAdPicker.setAdapter(new CategoryAdapter(categories, MainActivity.this));
 
-        previus.setVisibility(View.GONE);
-        checkShopKind(0);
+                    unitAdPicker.scrollToPosition(0);
+                    unitAdPicker.setItemTransitionTimeMillis(150);
+                    unitAdPicker.setItemTransformer(new ScaleTransformer.Builder()
+                            .setMinScale(0.8f)
+                            .build());
+
+                    previus.setVisibility(View.GONE);
+
+                    subCategoryRecyclerView.setAdapter(new SubCategoryAdapter(categories.get(0).getSubCategory(),MainActivity.this));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoriesResponse> call, Throwable t) {
+
+            }
+        });
+
     }
 
     private void setSliderViews() {
@@ -296,6 +354,8 @@ public class MainActivity extends AppCompatActivity
             animation2();
         }else if (id == R.id.aboutApp) {
             startActivity(new Intent(this,AboutUsActivity.class));
+        }else if (id == R.id.rules) {
+            startActivity(new Intent(this, TermsAndConditions.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -309,82 +369,56 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onCurrentItemChanged(@Nullable HorisontalScrollAdapter.ViewHolder viewHolder, int i) {
-        currentPosition = i;
-        if (i == 0) {
-            previus.setVisibility(View.GONE);
-            next.setVisibility(View.VISIBLE);
-        } else if (adList.size() - 1 == i) {
-            next.setVisibility(View.GONE);
-            previus.setVisibility(View.VISIBLE);
-        } else {
-            next.setVisibility(View.VISIBLE);
-            previus.setVisibility(View.VISIBLE);
-        }
+    public void onCurrentItemChanged(@Nullable CategoryAdapter.ViewHolder viewHolder, int i) {
+
+
+
     }
 
     @Override
-    public void onScrollStart(@NonNull HorisontalScrollAdapter.ViewHolder currentItemHolder, int i) {
-        currentPosition = i;
-        if (i == 0) {
-            previus.setVisibility(View.GONE);
-            next.setVisibility(View.VISIBLE);
-        } else if (adList.size() - 1 == i) {
-            next.setVisibility(View.GONE);
-            previus.setVisibility(View.VISIBLE);
-        } else {
-            next.setVisibility(View.VISIBLE);
-            previus.setVisibility(View.VISIBLE);
-        }
+    public void onScrollStart(@NonNull CategoryAdapter.ViewHolder currentItemHolder, int i) {
+
+
     }
 
     @Override
-    public void onScrollEnd(@NonNull HorisontalScrollAdapter.ViewHolder currentItemHolder, int i) {
+    public void onScrollEnd(@NonNull CategoryAdapter.ViewHolder currentItemHolder, int i) {
         currentPosition = i;
-        if (i == 0) {
+        subCategoryRecyclerView.setAdapter(new SubCategoryAdapter(categories.get(i).getSubCategory(),MainActivity.this));
+        if (currentPosition == 0) {
+
             previus.setVisibility(View.GONE);
             next.setVisibility(View.VISIBLE);
-        } else if (adList.size() - 1 == i) {
+        } else if (categories.size() - 1 == currentPosition) {
             next.setVisibility(View.GONE);
             previus.setVisibility(View.VISIBLE);
         } else {
             next.setVisibility(View.VISIBLE);
             previus.setVisibility(View.VISIBLE);
         }
-        checkShopKind(i);
     }
 
     @Override
     public void onScroll(float position, int i,
-                         int newIndex, @Nullable HorisontalScrollAdapter.ViewHolder currentHolder,
-                         @Nullable HorisontalScrollAdapter.ViewHolder newCurrent) {
-        currentPosition = i;
-        if (i == 0) {
-            previus.setVisibility(View.GONE);
-            next.setVisibility(View.VISIBLE);
-        } else if (adList.size() - 1 == i) {
-            next.setVisibility(View.GONE);
-            previus.setVisibility(View.VISIBLE);
-        } else {
-            next.setVisibility(View.VISIBLE);
-            previus.setVisibility(View.VISIBLE);
-        }
+                         int newIndex, @Nullable CategoryAdapter.ViewHolder currentHolder,
+                         @Nullable CategoryAdapter.ViewHolder newCurrent) {
+
     }
 
     int currentPosition = 0;
 
     @OnClick(R.id.imgNext)
     void setNext() {
-        if (currentPosition < adList.size()) {
+        if (currentPosition < categories.size()) {
 
             unitAdPicker.scrollToPosition(currentPosition + 1);
-            checkShopKind(currentPosition+1);
+            subCategoryRecyclerView.setAdapter(new SubCategoryAdapter(categories.get(currentPosition+1).getSubCategory(),MainActivity.this));
             unitAdPicker.startViewTransition(unitAdPicker);
             currentPosition = currentPosition + 1;
             if (currentPosition == 0) {
                 previus.setVisibility(View.GONE);
                 next.setVisibility(View.VISIBLE);
-            } else if (adList.size() - 1 == currentPosition) {
+            } else if (categories.size() - 1 == currentPosition) {
                 next.setVisibility(View.GONE);
                 previus.setVisibility(View.VISIBLE);
             } else {
@@ -400,13 +434,13 @@ public class MainActivity extends AppCompatActivity
         if (currentPosition > 0) {
 
             unitAdPicker.scrollToPosition(currentPosition - 1);
-            checkShopKind(currentPosition-1);
+            subCategoryRecyclerView.setAdapter(new SubCategoryAdapter(categories.get(currentPosition-1).getSubCategory(),MainActivity.this));
             currentPosition = currentPosition - 1;
             if (currentPosition == 0) {
 
                 previus.setVisibility(View.GONE);
                 next.setVisibility(View.VISIBLE);
-            } else if (adList.size() - 1 == currentPosition) {
+            } else if (categories.size() - 1 == currentPosition) {
                 next.setVisibility(View.GONE);
                 previus.setVisibility(View.VISIBLE);
             } else {

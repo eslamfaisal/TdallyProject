@@ -311,4 +311,14 @@ Sign in or create a new account so you can send a message to the owner of the ad
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="banks_accounts">Banks accounts</string>
     <string name="current">Current</string>
+    <string name="getting_locations">Getting Location...</string>
+    <string name="get_location_permistion">Gimme the permission!</string>
+    <string name="gps_message">Would you mind to turn GPS on with high accuracy mode?</string>
+    <string name="no_internet">No internet</string>
+    <string name="invalid_lat_long_used">Invaled lat long ysed</string>
+    <string name="no_address_found">No address</string>
+    <string name="address_found">Address found</string>
+    <string name="fill_all">Pleas fill all fields</string>
+    <string name="pass_not_match">Password not match</string>
+    <string name="sending_ad">Sending the ad</string>
 </resources>

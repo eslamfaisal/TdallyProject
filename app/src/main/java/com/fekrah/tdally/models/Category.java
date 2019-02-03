@@ -1,13 +1,13 @@
 package com.fekrah.tdally.models;
 
-public class UnitAd {
+public class Category {
     private String image;
     private String name;
 
-    public UnitAd() {
+    public Category() {
     }
 
-    public UnitAd(String image, String name) {
+    public Category(String image, String name) {
         this.image = image;
         this.name = name;
     }
